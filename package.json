@@ -1,0 +1,25 @@
+{
+  "name": "hello-openfeature-node-server",
+  "version": "1.0.0",
+  "description": "Minimal Example using LaunchDarkly with OpenFeature",
+  "main": "index.js",
+  "keywords": [
+    "launchdarkly",
+    "launch",
+    "darkly",
+    "react",
+    "sdk",
+    "bindings"
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "module",
+  "author": "LaunchDarkly <team@launchdarkly.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@launchdarkly/openfeature-node-server": ">= 0.1.6",
+    "@openfeature/js-sdk": "^1.x",
+    "launchdarkly-node-server-sdk": ">= 6.4.3"
+  }
+}

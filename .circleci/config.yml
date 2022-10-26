@@ -1,0 +1,38 @@
+version: 2.1
+
+workflows:
+  test:
+    jobs:
+    - do-test:
+        context: hello-world-demos
+
+  test-daily:
+    triggers:
+    - schedule:
+        cron: "0 6 * * *"
+        filters:
+          branches:
+            only: main
+    jobs:
+    - do-test:
+        context: hello-world-demos
+
+jobs:
+  do-test:
+    docker:
+      - image: cimg/node:14.19
+    environment:
+      SOURCE_FILE_NAME: index.js
+    steps:
+      - checkout
+      - run:
+          name: insert SDK key and flag key into demo code
+          command: |
+            sed -i.bak "s/sdkKey *= *\".*\"/sdkKey = \"${LD_HELLO_WORLD_SDK_KEY}\"/" ${SOURCE_FILE_NAME}
+            sed -i.bak "s/featureFlagKey *= *\".*\"/featureFlagKey = \"${LD_HELLO_WORLD_FLAG_KEY_WITH_TRUE_VALUE}\"/" ${SOURCE_FILE_NAME}
+      - run:
+          name: run demo
+          command: |
+            npm i
+            npm start | tee output.txt
+            grep "is true for this user" output.txt || (echo "Flag did not evaluate to expected true value" && exit 1)
