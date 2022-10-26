@@ -5,8 +5,8 @@ import { LaunchDarklyProvider } from '@launchdarkly/openfeature-node-server';
 // Set sdkKey to your LaunchDarkly SDK key.
 const sdkKey = '';
 
-// Set flagKey to the feature flag key you want to evaluate
-const flagKey = 'my-boolean-flag';
+// Set featureFlagKey to the feature flag key you want to evaluate
+const featureFlagKey = 'my-boolean-flag';
 
 // Set up the user properties. This user should appear on your LaunchDarkly users dashboard
 // soon after you run the demo.
@@ -21,9 +21,9 @@ await ldClient.waitForInitialization();
 OpenFeature.setProvider(new LaunchDarklyProvider(ldClient));
 const client = OpenFeature.getClient();
 
-const flagValue = await client.getBooleanValue(flagKey, false, context);
+const flagValue = await client.getBooleanValue(featureFlagKey, false, context);
 
-console.log(`Feature flag '${flagKey}' is ${flagValue} for this user`);
+console.log(`Feature flag '${featureFlagKey}' is ${flagValue} for this user`);
 
 // Here we ensure that the SDK shuts down cleanly and has a chance to deliver analytics
 // events to LaunchDarkly before the program exits. If analytics events are not delivered,
