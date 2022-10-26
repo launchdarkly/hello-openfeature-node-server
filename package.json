@@ -7,9 +7,10 @@
     "launchdarkly",
     "launch",
     "darkly",
-    "react",
+    "node",
     "sdk",
-    "bindings"
+    "openfeature",
+    "provider"
   ],
   "scripts": {
     "start": "node index.js"
