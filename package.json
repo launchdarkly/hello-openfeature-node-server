@@ -22,5 +22,9 @@
     "@launchdarkly/openfeature-node-server": "0.3.0",
     "@openfeature/js-sdk": "^1.x",
     "launchdarkly-node-server-sdk": ">= 7.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "typescript": "^4.9.5"
   }
 }
