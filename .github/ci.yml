@@ -1,18 +1,16 @@
 name: Build and run
 on:
-  # schedule:
-  #   # * is a special character in YAML so you have to quote this string
-  #   - cron:  '0 9 * * *'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 9 * * *'
   push:
-  #   branches: [ main, 'feat/**', 'rlamb/use-github-actions' ]
-  #   paths-ignore:
-  #     - '**.md' # Do not need to run CI for markdown changes.
-  # pull_request:
-  #   branches: [ main, 'feat/**', 'rlamb/update-latest-provider' ]
-  #   paths-ignore:
-  #     - '**.md'
-  # workflow_dispatch:
-  # repository_dispatch:
+    branches: [ main, 'feat/**' ]
+    paths-ignore:
+      - '**.md' # Do not need to run CI for markdown changes.
+  pull_request:
+    branches: [ main, 'feat/**' ]
+    paths-ignore:
+      - '**.md'
 
 jobs:
   build-and-run:
