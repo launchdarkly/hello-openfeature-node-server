@@ -12,13 +12,12 @@ This sample is compatible with Node.js versions 14 and above.
 
 1. Install dependencies using `npm install`.
 
-2. Edit `index.js` and set the value of `sdkKey` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` to the flag key.
+1. Set the environment variable `LAUNCHDARKLY_SDK_KEY` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `LAUNCHDARKLY_FLAG_KEY` to the flag key; otherwise, a boolean flag of `sample-feature` will be assumed.
 
-```
-const sdkKey = '1234567890abcdef';
-
-const featureFlagKey = 'my-flag';
-```
+    ```bash
+    export LAUNCHDARKLY_SDK_KEY="1234567890abcdef"
+    export LAUNCHDARKLY_FLAG_KEY="my-boolean-flag"
+    ```
 
 3. On the command line, run `npm start`
 
