@@ -5,7 +5,7 @@ import { LaunchDarklyProvider } from '@launchdarkly/openfeature-node-server';
 const sdkKey = process.env.LAUNCHDARKLY_SDK_KEY ?? '';
 
 // Set featureFlagKey to the feature flag key you want to evaluate
-const featureFlagKey = 'my-boolean-flag';
+const featureFlagKey = process.env.LAUNCHDARKLY_FLAG_KEY ?? 'sample-feature';
 
 // Set up the context properties. This context should appear on your LaunchDarkly contexts dashboard
 // soon after you run the demo.
@@ -22,7 +22,7 @@ OpenFeature.addHandler(ProviderEvents.Ready, async (_eventDetails) => {
 
   const flagValue = await client.getBooleanValue(featureFlagKey, false, context);
 
-  console.log(`Feature flag '${featureFlagKey}' is ${flagValue} for this context`);
+  console.log(`The ${featureFlagKey} feature flag evaluates to ${flagValue}`);
 
   // Here we ensure that the SDK shuts down cleanly and has a chance to deliver analytics
   // events to LaunchDarkly before the program exits. If analytics events are not delivered,
