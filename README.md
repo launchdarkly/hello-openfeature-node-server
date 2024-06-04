@@ -21,4 +21,4 @@ This sample is compatible with Node.js versions 14 and above.
 
 3. On the command line, run `npm start`
 
-You should receive the message ”Feature flag ‘<flag key>’ is <true/false> for this user”.
+You should receive the message ”The ${featureFlagKey} feature flag evaluates to ${flagValue}”.
