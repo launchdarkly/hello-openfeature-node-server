@@ -6,7 +6,7 @@ The LaunchDarkly OpenFeature provider for the Server-Side SDK for Node.js is des
 
 ## Supported Node versions
 
-This sample is compatible with Node.js versions 14 and above.
+This sample is compatible with Node.js versions 18 and above.
 
 ## Build instructions
 
