@@ -19,7 +19,7 @@
   "author": "LaunchDarkly <team@launchdarkly.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@launchdarkly/openfeature-node-server": "0.6.3",
+    "@launchdarkly/openfeature-node-server": ">= 1.0.0",
     "@openfeature/server-sdk": "^1.14.0",
     "@launchdarkly/node-server-sdk": ">= 9.4.5"
   }
