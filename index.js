@@ -7,6 +7,11 @@ const sdkKey = process.env.LAUNCHDARKLY_SDK_KEY ?? '';
 // Set featureFlagKey to the feature flag key you want to evaluate
 const featureFlagKey = process.env.LAUNCHDARKLY_FLAG_KEY ?? 'sample-feature';
 
+if (!sdkKey) {
+  console.log('*** Please set the LAUNCHDARKLY_SDK_KEY environment variable to your LaunchDarkly SDK key first.');
+  process.exit(1);
+}
+
 // Set up the context properties. This context should appear on your LaunchDarkly contexts dashboard
 // soon after you run the demo.
 // Remember when using OpenFeature to use `targetingKey` instead of `key`.
